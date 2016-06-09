@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";;;AAKA,QAAQ;EACP,KAAK,EAAC,GAAG",
+"sources": ["../../app/sass/core.scss"],
+"names": [],
+"file": "core.css"
+}

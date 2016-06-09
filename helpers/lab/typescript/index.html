@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title page-title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></head>
+<body>
+    <div ui-view class="jgt-fill"></div>
+      <script>
+        var jsApiModule = {
+            script: [
+                {
+                    "id": "778509435847f7c9d7bc4738660bfe4c",
+                    "src": "./bower_components/angular/angular.js"
+                },
+                {
+                    "id": "44a63fe41fdf1655fb479f844dfc30eb",
+                    "src": "./bower_components/angular-touch/angular-touch.js"
+                },
+                {
+                    "id": "228dfe26eaba33a57ee5847702ba1d68",
+                    "src": "./bower_components/angular-messages/angular-messages.js"
+                },
+                {
+                    "id": "5cbfe20689cf3e09e3f3c27e297c7041",
+                    "src": "./bower_components/oclazyload/dist/oclazyload.js"
+                },
+                {
+                    "id": "5d2dcc79841d4f671d17f28e749afc48",
+                    "src": "./bower_components/angular-ui-router/release/angular-ui-router.js"
+                },
+                {
+                    "id": "4ae0a48904902d02ec8167f1725b6a1d",
+                    "src": "../jgTools/dev/jg-tools.js"
+                },
+                {
+                    "id": "4ae0a48904902d02ec8167f1725b6a1d",
+                    "src": "./dev/js/template.js"
+                },
+                {
+                    "id": "ebf5555cd0d0c762fd7774316b162071",
+                    "src": "./dev/js/app.js"
+                }
+            ],
+            link: [
+                {
+                    "id": "cfcf7fd1ca050a00a3a245725c6cd7d2",
+                    "href": "./dev/css/iconos.css"
+                },
+                {
+                    "id": "805e2601e03510b10078b89999db4353",
+                    "href": "./dev/css/core.css"
+                }
+            ],
+            linkServer: [],
+            cache:true,
+            version:'12',
+            cachePrefix:'jtlc',
+            onLoad:function(){
+                angular.module('Admin.config', [])
+                .constant("ADMINCONFIG", {
+                    "view_url": "../",
+                    "view_sufix": "?12",//routeAction
+                    "base_url": "/devmap/public/admin/ajax/", // ruta del ajax
+                    "base_path": "./dev/js/", // ruta de los archivos js
+                    "baseFile": "../jgTools/dev/", // ruta de los css
+                    "skin":"skin-1",
+                    "skinSufix":".css",
+                    "loadModule":true,
+                    "cache":jsApiModule.cache,
+                    "version":jsApiModule.version,
+                    "cachePrefix": jsApiModule.cachePrefix
+                });
+                angular.bootstrap(document, ['Admin']);
+            }
+        };
+    </script>
+    <script type="text/javascript" charset="utf-8" src="../jgTools/dev/jsapi.js" async=""></script>
+    <script type="text/ng-template" id="app-custom-messages">
+        <p class="help-block" ng-message="required">Este campo es requerido</p>
+        <p class="help-block" ng-message="minlength">Este campo es demasiado corto</p>
+    </script>
+    </body>
+</html>

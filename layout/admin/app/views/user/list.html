@@ -1,0 +1,45 @@
+<div class="app-user">
+	<jgc-card>
+		<div class="card-section">
+			<div class="form-search" >
+				<form ng-submit="buscarPersona()">
+	
+					<div class="input-group input-group-sm">
+						<input type="search" ng-model="search.value" class="form-control" placeholder="Buscar">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="submit"> <i class="fa fa-search"></i>
+							</button>
+						</span>
+					</div>
+	
+				</form>
+			</div>
+		</div>
+	</jgc-card>
+	
+	<jgc-card>
+		<ul class="card-list">
+			<li class="item" ng-repeat="user in users"  >
+				<a href="" ui-sref="sis.user_editar({ userID: user.id })">
+					<div class="row show-grfghgdfg">
+					<div class="col-xs-12">
+						<div class="row">
+							<div class="col-xs-12 col-sm-6">{{ user.name }} {{user.lastName}} {{user.secondLastName}}</div>
+							<div class="col-xs-12 col-sm-6">
+								<small>{{user.identityType}}: {{user.identityNumber}}</small>
+							</div>
+						</div>
+					</div>
+				</div>
+				</a>
+				
+			</li>
+		</ul>
+		<div class="card-section">
+			<div class="text-center" ng-if="users.length==0 && yasebusco">no hay personas</div>
+			<div class="text-center" ng-if="!users">
+				<i class="fa fa-spinner fa-pulse fa-4x"></i>
+			</div>
+		</div>
+	</jgc-card>
+</div>

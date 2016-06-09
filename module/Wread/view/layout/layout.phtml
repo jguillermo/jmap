@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="App">
+<head>
+  <meta charset="utf-8">
+    <title page-title></title>
+    
+
+    <?php 
+        echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+            //->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge');
+    ?>
+    <?php 
+
+    if(ENVIRONMENT=='development') {
+
+        $this->headLink()
+                ->prependStylesheet($this->basePath('css/skin-1.css'))
+                ->prependStylesheet($this->basePath('css/app.css'))
+                ->prependStylesheet($this->basePath('plugin/angular-bootstrap/ui-bootstrap-csp.css'))
+                ->prependStylesheet($this->basePath('plugin/bootstrap/css/bootstrap-theme.css'))
+                ->prependStylesheet($this->basePath('plugin/bootstrap/css/bootstrap.css'))
+                ->prependStylesheet($this->basePath('plugin/font-awesome/css/font-awesome.css')); 
+        $this->headScript()
+            ->prependFile($this->basePath('js/app.js'))
+            ->prependFile($this->basePath('plugin/angular-bootstrap/ui-bootstrap-tpls.js'))
+            ->prependFile($this->basePath('plugin/angular-ui-router/angular-ui-router.js'))
+            //->prependFile($this->basePath('plugin/angular-ui-mask/mask.js'))
+            ->prependFile($this->basePath('plugin/ng-clip/ng-clip.min.js'))
+            ->prependFile($this->basePath('plugin/zeroclipboard/zeroClipboard.js'))
+            ->prependFile($this->basePath('plugin/angular-md5/angular-md5.js'))
+            ->prependFile($this->basePath('plugin/angular-messages/angular-messages.js'))
+            ->prependFile($this->basePath('plugin/angular-touch/angular-touch.js'))
+            ->prependFile($this->basePath('plugin/angular-animate/angular-animate.js'))
+            ->prependFile($this->basePath('plugin/angular/angular.js'))
+            ->prependFile($this->basePath('plugin/jquery/jquery.js'));
+
+    }else{
+
+        $this->headLink()
+                ->prependStylesheet($this->basePath('css/skin-1-'.$this->nAppBuild.'.min.css'))
+                ->prependStylesheet($this->basePath('css/app'.$this->nAppBuild.'.min.css'))
+                ->prependStylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+                ->prependStylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'); 
+                
+        $this->headScript()
+            ->prependFile($this->basePath('js/app'.$this->nAppBuild.'.min.js'))
+            ->prependFile('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-messages.min.js')
+            ->prependFile('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-touch.min.js')
+            ->prependFile('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.min.js')
+            ->prependFile('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js')
+            ->prependFile('https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js');
+    }
+
+    $this->headLink()
+                ->prependStylesheet('https://fonts.googleapis.com/css?family=Roboto:400,700,400italic');
+
+    ?>
+
+
+    <?php echo $this->headLink(); ?>
+
+</head>
+<body class="skin-1">
+    <div ui-view></div>
+    <?php //echo $this->content; ?>
+    
+    <?php echo $this->headScript(); ?>
+
+    <?php echo $this->inlineScript(); ?>
+<?php //echo $this->url('application',array('controller'=>'user')); ?>
+    <script>
+    (function(){
+        'use strict';
+        angular.module('App.config', [])
+        .constant("ADM_ROUTES", {
+            "base_url": "<?php echo $this->url('wread/ajax'); ?>",
+            "cache": "appwread"
+        });
+    })();
+    </script>
+
+    <script type="text/ng-template" id="app-custom-messages">
+        <p class="help-block" ng-message="required">Este campo es requerido</p>
+        <p class="help-block" ng-message="minlength">Este campo es demasiado corto</p>
+    </script>
+
+    </body>
+</html>

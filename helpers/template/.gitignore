@@ -1,0 +1,6 @@
+node_modules
+dist
+.tem
+.sass-cache
+bower_components
+f/admin-dev

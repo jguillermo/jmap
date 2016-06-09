@@ -1,0 +1,80 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Leer Web Service</h3>
+	</div>
+	<div class="panel-body">
+
+		<form ng-submit="analizar()" class="row">
+			<div class="form-group col-md-2">
+				<label>Entidad</label>
+				<select class="form-control" ng-model="search.ent">
+					<option value="msi">Mun. SI</option>
+				</select>
+			</div>
+			<div class="form-group col-md-8">
+				<label>Url</label>
+				<input type="url" class="form-control" ng-model="search.url" ></div>
+			<div class="col-md-2">
+				<br>
+				<button ng-disabled="search.loading" type="submit" class="btn btn-default">Analizar</button>
+			</div>
+
+		</form>
+
+		<div ng-if="search.loading" class="row">
+			<div class="col-md-12"> <i class="fa fa-spinner fa-spin fa-5x"></i>
+			</div>
+		</div>
+
+		<div ng-show="guids.length != 0">
+
+			<div>
+				<ul class="nav nav-pills" >
+
+					<li ng-repeat="parent in parents"ng-class="{'active':parent.url==search.url}" >
+						<a href="" ng-click="loadParent(parent.url)" >{{parent.title}}</a>
+					</li>
+
+				</ul>
+			</div>
+
+			<div>
+				<ul class="nav nav-pills" >
+
+					<li ng-repeat="guid in guids"  >
+						<a href="" ng-click="loadGuid(guid)" >
+
+							<span ng-show="guidTables['{{guid}}'].show"  class="badge alert-success"> <i class="fa fa-check"></i>
+							</span>
+							<span ng-show="guidTables['{{guid}}'].loading">
+								<i class="fa fa-spinner fa-spin"></i>
+							</span>
+							{{guid}}
+						</a>
+					</li>
+
+				</ul>
+			</div>
+
+		</div>
+
+		<div class="row" ng-show="guids.length != 0">
+
+			<div class="col-md-3" ng-repeat="guidTable in guidTables">
+				<div class="panel panel-info">
+					<div class="panel-heading" ng-click="open(guidTable.id)">{{guidTable.title}}</div>
+					<div class="table-responsive">
+						<ul class="list-group">
+							<li class="list-group-item" ng-repeat="item in guidTable.result[0] track by $index">{{item}}</li>
+							<li> <a ng-href="#/app/loadsql/{{guidTable.id}}"   target="blank" >Guardar</a> </li>
+							<!-- <li> <a href="" data-ui-sref="app.showsql({ guid: guidTable.id })">Guardar 2</a> </li> -->
+						</ul>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>

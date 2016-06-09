@@ -1,0 +1,92 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+//== tipode variable
+//
+//## DEscripcion de la variable
+//
+//en est epunto se deben definir todas las variables que se van a usar en los modulos que vas a desaroollar 
+//o cambios pequeños ar core de boostrap
+//no es recomendame modificar el boostrap en este punto, 
+//para ello estan los skin para que personalices todo los que desees.
+
+// tamaño del menu
+$app-layout-width: 220px;
+
+// espacios laterales del contenedor en modo celular
+$app-layout-padding-left: 0;
+$app-layout-padding-right: 0;
+
+// espacios laterales del contenedor en modo escritorio, por defecto 15px cada uno
+$app-layout-desktop-padding-left: ceil(($grid-gutter-width / 2));
+$app-layout-desktop-padding-right: floor(($grid-gutter-width / 2));
+
+
+
+$app-profile-menu-bg:                 #fff !default;
+//** `.app-profile-menu-item` border color
+$app-profile-menu-border:             #ddd !default;
+//** List group border radius
+$app-profile-menu-border-radius:      $border-radius-base !default;
+
+//** Background color of single list items on hover
+$app-profile-menu-hover-bg:           #f5f5f5 !default;
+//** Text color of active list items
+$app-profile-menu-active-color:       $component-active-color !default;
+//** Background color of active list items
+$app-profile-menu-active-bg:          $component-active-bg !default;
+//** Border color of active list elements
+$app-profile-menu-active-border:      $app-profile-menu-active-bg !default;
+//** Text color for content within active list items
+$app-profile-menu-active-text-color:  lighten($app-profile-menu-active-bg, 40%) !default;
+
+//** Text color of disabled list items
+$app-profile-menu-disabled-color:      $gray-light !default;
+//** Background color of disabled list items
+$app-profile-menu-disabled-bg:         $gray-lighter !default;
+//** Text color for content within disabled list items
+$app-profile-menu-disabled-text-color: $app-profile-menu-disabled-color !default;
+
+$app-profile-menu-link-color:         #555 !default;
+$app-profile-menu-link-hover-color:   $app-profile-menu-link-color !default;
+$app-profile-menu-link-heading-color: #333 !default;
+
+// definir el tipo de icono que va atener el menu
+$app-profile-menu-icon-right: 15px;
+$app-profile-menu-icon-top: 13px;
+$app-profile-menu-icon-color: $app-profile-menu-link-color;
+$app-profile-menu-icon-font-size: 10px;    
+$app-profile-menu-icon-background-color: inherit;
+$app-profile-menu-icon-font-family: inherit;
+
+$app-profile-menu-icon-content: '[+]';
+$app-profile-menu-icon-content-open: '[-]';
+
+
+// dimensiones del item 
+// 
+$app-profile-menu-item-padding-top: 10px;
+$app-profile-menu-item-padding-right:  15px;
+$app-profile-menu-item-padding-bottom: 10px;
+$app-profile-menu-item-padding-left: 15px;
+
+//-top:
+//-right: 
+//-bottom:
+//-left:
+
+
+
+// border del item
+$app-profile-menu-item-border-top: 1px solid $app-profile-menu-border;
+$app-profile-menu-item-border-right: none;
+$app-profile-menu-item-border-bottom: 1px solid $app-profile-menu-border;
+$app-profile-menu-item-border-left: none;
+
+// sub menu
+$app-profile-menu-sub-menu-content-margin-left: ceil(($grid-gutter-width / 2));//15px;
+$app-profile-menu-sub-menu-item-padding-left: $app-profile-menu-item-padding-left + ceil(($app-profile-menu-sub-menu-content-margin-left / 3));//5px;
+$app-profile-menu-sub-menu-item-hover-color : $app-profile-menu-link-color;
+$app-profile-menu-sub-menu-item-color:lighten($app-profile-menu-link-color,30%);

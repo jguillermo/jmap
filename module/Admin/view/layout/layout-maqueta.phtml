@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="Admin">
+<head>
+  <meta charset="utf-8">
+  <?php 
+        echo $this->
+  headTitle('jmap')->setSeparator(' - ')->setAutoEscape(false);
+    ?>
+  <?php 
+        echo $this->
+  headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge');
+    ?>
+  <?php 
+        echo $this->
+  headLink()
+                ->prependStylesheet($this->basePath('css/app.css'))
+                ->prependStylesheet($this->basePath('plugin/angular-bootstrap/ui-bootstrap-csp.css'))
+                //->prependStylesheet($this->basePath('plugin/bootstrap/css/bootstrap-theme.css'))
+                //->prependStylesheet('https://bootswatch.com/paper/bootstrap.css')
+                ->prependStylesheet($this->basePath('plugin/bootstrap/css/bootstrap.css'))
+                ->prependStylesheet($this->basePath('plugin/font-awesome/css/font-awesome.css')); 
+    ?>
+
+</head>
+<body>
+  <?php echo $this->content; ?>
+
+
+</body>
+</html>

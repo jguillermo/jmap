@@ -1,0 +1,31 @@
+{
+  "name": "jmaptools",
+  "version": "0.0.0",
+  "authors": [
+    "Jose Guillermo <jguillermo@outlook.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-animate": "~1.4.7",
+    "angular-bootstrap": "~0.14.1",
+    "angular-messages": "~1.4.7",
+    "angular-mocks": "~1.4.7",
+    "angular-touch": "~1.4.7",
+    "angular-ui-mask": "~1.4.7",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5",
+    "font-awesome": "fontawesome#~4.4.0",
+    "material-design-icons": "~2.1.1",
+    "oclazyload": "~1.0.8",
+    "ui-select": "angular-ui-select#~0.13.2",
+    "angular-loader": "~1.4.8"
+  }
+}

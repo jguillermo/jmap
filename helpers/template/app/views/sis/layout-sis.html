@@ -1,0 +1,21 @@
+<jm-layout>
+	<jm-layout-west>
+		<header class="header">
+			<div class="btn-header">
+				<button class="btn-menu-toggle" ng-click="toogle()" ><i class="fa fa-bars"></i></button>
+		</div>
+	</header>
+	<jm-profile-menu></jm-profile-menu>
+</jm-layout-west>
+<jm-layout-center>
+	<header class="header">
+		<div class="btn-header">
+				<button ng-click="toogleWest()" ><i class="fa fa-bars"></i></button>
+		</div>
+		<jm-profile-header></jm-profile-header>
+	</header>
+<div class="content container-fluid">
+	<div ui-view></div>
+</div>
+</jm-layout-center>
+</jm-layout>

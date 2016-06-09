@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("Entity.PhoneType",[])}(),function(){"use strict";function a(a,b){return{getAllList:function(){return b.jsonp(a.base_url+"phone-type/list-all")}}}angular.module("Entity.PhoneType").service("entPhoneTypeService",["ADMINCONFIG","jgsJsonpServices",a])}();

@@ -1,0 +1,98 @@
+.layout {
+	&.toggled-west {
+		.ly-menu-left {
+			width: $app-layout-width;
+			overflow-x: hidden;
+			background-color: $app-profile-menu-bg;
+		}
+
+		.ly-block {
+			display: block;
+		}
+
+		.ly-content {
+			overflow: hidden;
+			height: 150px;
+		}
+
+	}
+
+	.ly-block {
+		display: none;
+		position: fixed;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		z-index: 500;
+		background-color: rgba(201, 206, 204, 0.49);
+	}
+
+	.ly-content {
+		height: 100%;
+		width: 100%;
+
+		> div.content {
+			padding-left: $app-layout-padding-left;
+			padding-right: $app-layout-padding-right;
+		}
+
+	}
+
+	.ly-menu-left {
+		position: fixed;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 0;
+		z-index: 999;
+		overflow-y: auto;
+
+		padding-bottom:300px;
+		-webkit-transition: all 0.2s ease;
+		-moz-transition: all 0.2s ease;
+		-o-transition: all 0.2s ease;
+		transition: all 0.2s ease;
+		
+	}
+
+	@media(min-width:750px) {
+		&.toggled-west {
+			.ly-menu-left {
+				width: 0;
+			}
+
+			.ly-content {
+				padding-left: 0;
+				overflow: visible;
+				height: 100%;
+			}
+
+			.ly-block {
+				display: none;
+			}
+
+		}
+
+		.ly-menu-left {
+			width: $app-layout-width;
+
+			.btn-menu-toggle {
+				display: none;
+			}
+
+		}
+
+		.ly-content {
+			padding-left: $app-layout-width;
+
+			> div.content {
+				padding-left: $app-layout-desktop-padding-left;
+				padding-right: $app-layout-desktop-padding-right;
+			}
+
+		}
+
+	}
+
+}

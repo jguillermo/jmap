@@ -1,0 +1,71 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Geocode Web Service</h3>
+	</div>
+	<div class="panel-body">
+
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="list-group">
+					<div class="list-group-item">
+						<input type="text" placeholder="Buscar" ng-model="tblfilter"></div>
+					<a href="" class="list-group-item" ng-repeat="table in listdb | filter:tblfilter" ng-click="loadtable(table)">{{table}}</a>
+				</div>
+			</div>
+			<div   class="col-sm-9">
+				<div class="text-center">
+					<h3>{{table.name}}</h3>
+				</div>
+
+				<form class="form-horizontal" ng-submit="loadgeocode()">
+					<input type="hidden" name="name" ng-model="table.name">
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">Cod. Catastral</label>
+						<div class="col-sm-8">
+
+							<select class="form-control" ng-model="table.catastro" ng-options="column.name as column.val for  column in table.columns" ng-model="user.identityType_id" required>
+								<option value="" ></option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-4 control-label">Direccion</label>
+						<div class="col-sm-8">
+							<select class="form-control" ng-model="table.address" ng-options="column.name as column.val for  column in table.columns" ng-model="user.identityType_id" required>
+								<option value="" ></option>
+							</select>
+
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-4 control-label">Nº direccion</label>
+						<div class="col-sm-8">
+							<select class="form-control" ng-model="table.number" ng-options="column.name as column.val for  column in table.columns" ng-model="user.identityType_id" required>
+								<option value="" ></option>
+							</select>
+
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-4 control-label">Distrito</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="dist" ng-model="table.dist"></div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-4 col-sm-8">
+							<button type="submit" class="btn btn-default">Geocode</button>
+						</div>
+					</div>
+				</form>
+
+				
+
+			</div>
+
+		</div>
+
+	</div>
+</div>

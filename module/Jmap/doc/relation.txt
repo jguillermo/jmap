@@ -1,0 +1,9 @@
+se define los tipos de ralacion de la siguiente manera:
+
+1) "get_info" [M:1] : obtiene la informacionn de otra tabla, es de tipo get, 
+			se debe reconocer porque en el formulario se crea un 'select'. 
+			attr : 'getInfo','nombre_de_la_relacion', 'Clase_de_la_relacion', 'columna_para_relacionar','columna_para_traer_la_informacion'
+			ejm  : 'getInfo','identityType', 'Api\User\IdentityType', 'id','name'
+			* Esta relación debe estar siempre acompañada de un FRK
+2) "GetCollection" [1:M] : obtiene un array , con los valores del detalle.
+3) "GetMultiple" [M:M] : genera una tabla nueva, con con el nombre de las 2 tablas.

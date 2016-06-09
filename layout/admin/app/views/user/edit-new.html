@@ -1,0 +1,167 @@
+<style>
+.jgc-block{
+	background-color: rgba(255, 255, 255, 0);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 5;
+}
+.row-condensed > div > .btn-delete{
+	color: #d9534f;
+	margin: 0 -8px;
+    padding: 8px 5px;
+}
+.row-condensed > div > .btn-delete i{
+	font-size: 18px;
+}
+.row-condensed .row-condensed{
+	margin-left: -8px;
+    margin-right: -8px;
+}
+.removeform select.form-control{
+   background-image:none;     
+}
+.removeform .form-control {
+	border-color: #FFF;
+}
+.removeform  .form-control:focus {
+  border-color: #FFF;
+}
+</style>
+<section class="user-edit-new" >
+	<jgc-card>
+		<div class="card-section text-center"> <i class="material-icons">person</i>
+		</div>
+
+		<jgc-menu-horizontal>
+			<div class="jgc-mh-item active">Datos</div>
+			<div class="jgc-mh-item">Asociación</div>
+			<div class="jgc-mh-item">Pedidos</div>
+			<div class="jgc-mh-item">Preguntas</div>
+		</jgc-menu-horizontal>
+	</jgc-card>
+
+	<form action="" name="frm_edit_new_user_datos">
+		<jgc-card>
+			<h3 class="card-title">
+				Datos Personales
+				<a ng-hide="block.datos.isEdit" class="btn btn-default btn-xs pull-right" ng-click="block.datos.isEdit=true" class="pull-right">Editar</a>
+			</h3>
+			
+			
+			<div  jgc-block jg-block-enable="{{!block.datos.isEdit}}" jg-block-type="2" class="row row-condensed " ng-class="{removeform:!block.datos.isEdit}" >
+				<div class="col-xs-6"  ng-class="{'has-error': frm_edit_new_user_datos.user_tipdoc.$touched && frm_edit_new_user_datos.user_tipdoc.$invalid}">
+					<select class="form-control" name="user_tipdoc" ng-options="identityType.id as identityType.name  for identityType in identityTypes" ng-model="user.identityType_id" required>
+						<option class="select-info"  value="" >Tipo de Documento</option>
+					</select>
+					<div ng-messages="frm_edit_new_user_datos.user_tipdoc.$touched && frm_edit_new_user_datos.user_tipdoc.$error">
+						<div ng-messages-include="app-custom-messages"></div>
+					</div>
+				</div>
+
+				<div class="col-xs-6"  ng-class="{'has-error': frm_edit_new_user_datos.user_numdoc.$touched && frm_edit_new_user_datos.user_numdoc.$invalid}">
+					<input type="text" name="user_numdoc" class="form-control" ng-model="user.identityNumber"  placeholder="Nº Documento" required >
+					<div ng-messages="frm_edit_new_user_datos.user_numdoc.$touched && frm_edit_new_user_datos.user_numdoc.$error">
+						<div ng-messages-include="app-custom-messages"></div>
+					</div>
+
+				</div>
+
+				<div class="col-xs-12"  ng-class="{'has-error': frm_edit_new_user_datos.user_name.$touched && frm_edit_new_user_datos.user_name.$invalid}">
+					<input type="text" class="form-control" name="user_name" ng-model="user.name" placeholder="Nombre" required>
+					<div ng-messages="frm_edit_new_user_datos.user_name.$touched && frm_edit_new_user_datos.user_name.$error">
+						<div ng-messages-include="app-custom-messages"></div>
+					</div>
+				</div>
+
+				<div class="col-xs-6"  ng-class="{'has-error': frm_edit_new_user_datos.user_lastName.$touched && frm_edit_new_user_datos.user_lastName.$invalid}">
+					<input type="text" class="form-control" name="user_lastName" ng-model="user.lastName" placeholder="Ap. Paterno" required>
+					<div ng-messages="frm_edit_new_user_datos.user_lastName.$touched && frm_edit_new_user_datos.user_lastName.$error">
+						<div ng-messages-include="app-custom-messages"></div>
+					</div>
+				</div>
+
+				<div class="col-xs-6"  ng-class="{'has-error': frm_edit_new_user_datos.user_secondLastName.$touched && frm_edit_new_user_datos.user_secondLastName.$invalid}">
+					<input type="text" class="form-control" name="user_secondLastName" ng-model="user.secondLastName" placeholder="Ap. Materno">
+					<div ng-messages="frm_edit_new_user_datos.user_secondLastName.$touched && frm_edit_new_user_datos.user_secondLastName.$error">
+						<div ng-messages-include="app-custom-messages"></div>
+					</div>
+				</div>
+
+			</div>
+			<div ng-if="block.datos.isEdit" class="row jgt-padding-bottom-20">
+				<div class="col-xs-6">
+					<a class="btn btn-primary btn-block" role="button">
+					<i ng-show="frm_edit_new_user_datos.$invalid" class="material-icons">error</i>
+					<i  ng-show="frm_edit_new_user_datos.$valid" class="material-icons">check</i>
+					Guardar</a>
+				</div>
+				<div class="col-xs-6">
+					<a class="btn btn-default btn-block" ng-click="block.datos.isEdit=false" role="button">Cancelar</a>
+				</div>
+			</div>
+		</jgc-card>
+	</form>
+	<form action="" name="frm_edit_new_user_phone">
+		<jgc-card>
+			<h3 class="card-title">
+				Teléfono
+				<a ng-hide="block.phone.isEdit" class="btn btn-default btn-xs pull-right" ng-click="block.phone.isEdit=true" class="pull-right">Editar</a>
+			</h3>
+			<div jgc-block jg-block-enable="{{!block.phone.isEdit}}" jg-block-type="2" class="row row-condensed" ng-class="{removeform:!block.phone.isEdit}">
+				<div class="col-xs-12" ng-repeat="phone in user.phone">
+					<div class="row row-condensed">
+						<div class="col-xs-1" ng-if="block.phone.isEdit">
+							<a href  class="btn btn-delete" ng-click="deletePhone($index)"> <i class="material-icons">remove_circle</i>
+							</a>
+						</div>
+
+						<div class="col-xs-5"  ng-class="{'has-error': frm_edit_new_user_phone.user_phone_type_{{$index}}.$touched && frm_edit_new_user_phone.user_phone_type_{{$index}}.$invalid}">
+							<select class="form-control" name="user_phone_type_{{$index}}" ng-options="phoneType.id as phoneType.name  for phoneType in phoneTypes" ng-model="phone.phone_type_id" required>
+								<option class="select-info"  value="" >Seleccionar</option>
+							</select>
+
+							<div ng-messages="frm_edit_new_user_phone['user_phone_type_' + $index].$touched && frm_edit_new_user_phone['user_phone_type_'+$index].$error">
+								<div ng-messages-include="app-custom-messages"></div>
+							</div>
+						</div>
+
+						<div class="col-xs-6"  ng-class="{'has-error': frm_edit_new_user_phone.user_phone_number_{{$index}}.$touched && frm_edit_new_user_phone.user_phone_number_{{$index}}.$invalid}">
+							<input type="text" class="form-control" name="user_phone_number_{{$index}}" ng-model="phone.number" ng-pattern="block.phone.validator[phone.phone_type_id].pattern" placeholder="" required>			
+
+							<div ng-messages="frm_edit_new_user_phone['user_phone_number_' + $index].$touched && frm_edit_new_user_phone['user_phone_number_'+$index].$error">
+								<p class="help-block" ng-message="pattern">{{block.phone.validator[phone.phone_type_id].pattern_msg}}</p>
+								<div ng-messages-include="app-custom-messages"></div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="card-link" ng-if="block.phone.isEdit">
+				<a href="" ng-click="addphone()" ng-disabled="block.phone.loading" ng-class="{'loading':block.phone.loading}">
+					Añadir teléfono
+					<span class="icon">
+						<i class="material-icons">add</i>
+					</span>
+					<span ng-show="block.phone.loading" >
+						<i class="fa fa-spinner fa-spin"></i>
+					</span>
+				</a>
+			</div>
+			<div ng-if="block.phone.isEdit" class="row jgt-padding-bottom-20">
+				<div class="col-xs-6">
+					<a class="btn btn-primary btn-block" role="button">
+					<i ng-show="frm_edit_new_user_phone.$invalid" class="material-icons">error</i>
+					<i ng-show="frm_edit_new_user_phone.$valid" class="material-icons">check</i>
+					Guardar</a>
+				</div>
+				<div class="col-xs-6">
+					<a class="btn btn-default btn-block" ng-click="block.phone.isEdit=false" role="button">Cancelar</a>
+				</div>
+			</div>
+		</jgc-card>
+	</form>
+</section>

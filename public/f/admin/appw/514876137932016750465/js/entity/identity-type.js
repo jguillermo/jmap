@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("Entity.IdentityType",[])}(),function(){"use strict";function a(a,b){return{getAllList:function(){return b.jsonp(a.base_url+"identity-type/list-all")}}}angular.module("Entity.IdentityType").service("entIdentityTypeService",["ADMINCONFIG","jgsJsonpServices",a])}();

@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("Admin.Dashboard",[])}(),function(){"use strict";function a(a){a.user={options:{title:"Usuarios por tipo de documento"},data:[]}}angular.module("Admin.Dashboard").controller("DashboardCtrl",["$scope",a])}();

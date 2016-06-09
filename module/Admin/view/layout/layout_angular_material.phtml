@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="Admin">
+<head>
+  <meta charset="utf-8">
+    <?php 
+        echo $this->headTitle('jmap')->setSeparator(' - ')->setAutoEscape(false);
+    ?>
+
+    <?php 
+        echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge');
+    ?>
+
+    <?php 
+
+    if(ENVIRONMENT=='development') {
+
+        $this->headLink()
+                ->prependStylesheet($this->basePath('css/app.css'))
+                ->prependStylesheet($this->basePath('plugin/angular-material/angular-material.css'))
+                ->prependStylesheet($this->basePath('css/font-md.css'))
+                ->prependStylesheet('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic'); 
+        $this->headScript()
+            ->prependFile($this->basePath('js/app.js'))
+            ->prependFile($this->basePath('plugin/angular-material/angular-material.js'))
+            ->prependFile($this->basePath('plugin/angular-route/angular-route.js'))
+            ->prependFile($this->basePath('plugin/angular-aria/angular-aria.js'))
+            ->prependFile($this->basePath('plugin/angular-animate/angular-animate.js'))
+            ->prependFile($this->basePath('plugin/angular/angular.js'));
+
+    }else{
+
+        $this->headLink()
+                ->prependStylesheet('https://ajax.googleapis.com/ajax/libs/angular_material/0.11.1/angular-material.min.css')
+                ->prependStylesheet('https://fonts.googleapis.com/icon?family=Material+Icons')
+                ->prependStylesheet($this->basePath('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic')); 
+        $this->headScript()
+            ->prependFile('https://ajax.googleapis.com/ajax/libs/angular_material/0.11.1/angular-material.min.js')
+            ->prependFile('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js')
+            ->prependFile('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-aria.min.js')
+            ->prependFile('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.min.js')
+            ->prependFile('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js');
+    }
+
+
+
+    ?>
+
+
+    <?php echo $this->headLink(); ?>
+
+</head>
+<body>
+
+<?php /*
+<md-icon  class="material-icons" >account_circle</md-icon><i class="material-icons">account_circle</i>
+*/?>
+    <div ng-view></div>
+    <?php //echo $this->content; ?>
+    
+    <?php echo $this->headScript(); ?>
+
+    <?php echo $this->inlineScript(); ?>
+<?php //echo $this->url('application',array('controller'=>'user')); ?>
+    <script>
+    (function(){
+        'use strict';
+        angular.module('Admin.config', [])
+        .constant("ADM_ROUTES", {
+            "base_url": "<?php echo $this->url('admin/ajax'); ?>",
+            "port": "80"
+        });
+    })();
+    </script>
+    </body>
+</html>

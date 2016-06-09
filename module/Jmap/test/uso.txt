@@ -1,0 +1,5 @@
+
+actualmente se esta usando este script para ejecutar las pruebas unitarias
+    
+clear && phpunit --testsuit JmapRelation --stop-on-failure
+

@@ -1,0 +1,17 @@
+<?php
+
+return array(
+    'db'=>array(
+        'default'=>array(
+            'driver'   => 'Pdo_Mysql',
+            'user'     => 'root',
+            'password' => 'dbadmin477',
+            'dbname'   => 'dbgralapp',
+            'hostname' => '192.168.1.188',
+            'charset'  => 'utf8'
+        )
+    ),
+    'crypt'=>array(
+        'tem'=>'',
+    ),
+);

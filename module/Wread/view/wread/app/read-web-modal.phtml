@@ -1,0 +1,44 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			{{list.title}}
+			
+		</h3><small>{{list.description}}</small>
+	</div>
+	<div class="panel-body"></div>
+	<div class="table-responsive">
+		<table class="table">
+			<tr ng-repeat="row in list.result">
+				<td ng-repeat="item in row track by $index">{{item}}</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="sql" ng-show="listasql" style="padding:20px">
+DROP TABLE IF EXISTS `dta-{{listasql.id}}`;
+CREATE TABLE `dta-{{listasql.id}}` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  <span ng-repeat="rowa in listasql.result[0] track by $index">`col{{$index+1}}` varchar(100) DEFAULT NULL,</span>
+  `id_lugar` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `wread`.`dta-{{listasql.id}}`(
+<span ng-repeat="row2 in listasql.result[0] track by $index">`col{{$index+1}}`<span ng-hide="1==(listasql.result[0].length-$index)">,</span> </span>
+)VALUES 
+<span ng-repeat="row in listasql.result">
+	(<span ng-repeat="item in row track by $index">'{{item}}'<span ng-hide="1==(row.length-$index)" >,</span></span>)
+	<span ng-hide="1==(listasql.result.length-$index)">,</span>
+</span>
+;
+</div>
+
+<div style="padding:20px">
+	
+
+	<button  clip-copy="sqlserver">Copy to Clipboard</button>
+
+	
+	{{sqlserver}}
+</div>
+
